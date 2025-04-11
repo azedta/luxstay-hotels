@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Hotel Chain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/hotel-chain/add-hotel-chain.css}">
+</head>
+<body>
+<h2>Add Hotel Chain</h2>
+
+<form th:action="@{/hotel-chains}" th:object="${hotelChain}" method="post">
+
+  <label for="hotelChainName">Hotel Chain Name</label>
+  <input type="text" th:field="*{hotelChainName}" id="hotelChainName" />
+
+  <label for="logo">Logo File Name</label>
+  <input type="text" th:field="*{logo}" id="logo" />
+
+  <input type="submit" value="Submit" />
+</form>
+
+<a href="/hotel-chains">← Back to Hotel Chains</a>
+</body>
+</html>

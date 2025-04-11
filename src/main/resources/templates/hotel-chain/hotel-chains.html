@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Hotel Chains</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <link rel="stylesheet" th:href="@{/css/hotel-chain/hotel-chains.css}">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Our Hotel Chains</h1>
+
+<a href="/hotel-chains/add" class="add-button">+ Add New Hotel Chain</a>
+
+<div class="chain-container">
+  <div class="card" th:each="chain : ${hotelChains}">
+    <img th:src="@{'/images/logos/' + ${chain.logo}}" alt="Hotel Chain Logo" class="logo-img"/>
+
+    <h2 th:text="${chain.hotelChainName}"></h2>
+
+    <p th:text="'Hotels: ' + ${chain.nbrOfHotels}"></p>
+
+    <a th:href="@{'/hotels/chain/' + ${chain.hotelChainId}}">View Hotels</a>
+  </div>
+</div>
+
+<a href="/welcome" class="back-link">← Back to Welcome Page</a>
+
+</body>
+</html>
